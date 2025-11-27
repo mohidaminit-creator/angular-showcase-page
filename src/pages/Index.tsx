@@ -7,7 +7,7 @@ import { ProductCard } from "@/components/ProductCard";
 
 const Index = () => {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen overflow-x-hidden">
       <HeroSection />
       <VideoSection />
       <Product360Viewer />
