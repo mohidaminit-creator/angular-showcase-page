@@ -15,7 +15,7 @@ export const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-4 text-center animate-fade-in-up">
         <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6">
           Sports & Outdoor
-          <span className="block text-gradient mt-2">Performance Gear</span>
+          <span className="block bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent mt-2">Performance Gear</span>
         </h1>
         <p className="text-lg md:text-xl text-white/90 mb-12 max-w-2xl mx-auto">
           Built for adventure, engineered for peak performance in any environment

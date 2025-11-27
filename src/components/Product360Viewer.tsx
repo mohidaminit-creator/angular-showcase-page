@@ -55,9 +55,9 @@ export const Product360Viewer = () => {
   };
 
   return (
-    <section id="f-canvas" ref={canvasRef} className="min-h-screen flex items-center justify-center bg-muted py-20">
+    <section id="f-canvas" ref={canvasRef} className="h-screen flex items-center justify-center bg-muted">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12 animate-fade-in-up">
+        <div className="text-center mb-8 animate-fade-in-up">
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
             360° Product View
           </h2>
@@ -67,7 +67,7 @@ export const Product360Viewer = () => {
         </div>
 
         <div 
-          className="relative max-w-3xl mx-auto"
+          className="relative max-w-2xl mx-auto"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
         >
