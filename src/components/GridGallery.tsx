@@ -3,12 +3,17 @@ import productView2 from "@/assets/product-view-2.jpg";
 import productView3 from "@/assets/product-view-3.jpg";
 import productView4 from "@/assets/product-view-4.jpg";
 import lifestyleImg1 from "@/assets/lifestyle-1.jpg";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 export const GridGallery = () => {
+  const { ref, isVisible } = useScrollAnimation();
+  
   return (
-    <section className="py-20 bg-background">
+    <section ref={ref} className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12 animate-fade-in-up">
+        <div className={`text-center mb-12 transition-all duration-700 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}>
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">
             Designed for Perfection
           </h2>
@@ -18,7 +23,9 @@ export const GridGallery = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
+        <div className={`grid grid-cols-1 md:grid-cols-3 gap-4 max-w-6xl mx-auto transition-all duration-1000 delay-200 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}>
           {/* Top row - 3 images */}
           <div className="group relative overflow-hidden rounded-2xl aspect-square">
             <img

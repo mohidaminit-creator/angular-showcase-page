@@ -2,12 +2,17 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ShoppingCart, Star } from "lucide-react";
 import productThumb from "@/assets/product-thumb.jpg";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 export const ProductCard = () => {
+  const { ref, isVisible } = useScrollAnimation();
+  
   return (
-    <section className="py-20 bg-background">
+    <section ref={ref} className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <Card className="max-w-4xl mx-auto overflow-hidden shadow-2xl border-0">
+        <Card className={`max-w-4xl mx-auto overflow-hidden shadow-2xl border-0 transition-all duration-1000 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}>
           <CardContent className="p-0">
             <div className="grid md:grid-cols-2 gap-0">
               <div className="bg-muted p-8 flex items-center justify-center">

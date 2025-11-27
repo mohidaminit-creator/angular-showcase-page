@@ -22,9 +22,10 @@ export const Product360Viewer = () => {
       scrollTrigger: {
         trigger: '#f-canvas',
         start: 'top top',
-        end: 'bottom top',
+        end: '+=100%',
         scrub: 1,
         pin: true,
+        anticipatePin: 1,
         onUpdate: (self) => {
           const progress = self.progress;
           const index = Math.floor(progress * images.length) % images.length;

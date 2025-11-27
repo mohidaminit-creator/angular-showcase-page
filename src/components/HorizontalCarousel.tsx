@@ -10,6 +10,7 @@ import productView2 from "@/assets/product-view-2.jpg";
 import productView3 from "@/assets/product-view-3.jpg";
 import lifestyleImg1 from "@/assets/lifestyle-1.jpg";
 import lifestyleImg2 from "@/assets/lifestyle-2.jpg";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const carouselImages = [
   { src: lifestyleImg1, title: "Built for Adventure" },
@@ -20,12 +21,16 @@ const carouselImages = [
 ];
 
 export const HorizontalCarousel = () => {
+  const { ref, isVisible } = useScrollAnimation();
+  
   return (
-    <section className="py-32 bg-background relative overflow-hidden">
+    <section ref={ref} className="py-32 bg-background relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-muted/50 to-background" />
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16 animate-fade-in-up">
+        <div className={`text-center mb-16 transition-all duration-700 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}>
           <h2 className="font-display text-5xl md:text-6xl font-bold mb-6">
             Experience the Difference
           </h2>
@@ -39,7 +44,9 @@ export const HorizontalCarousel = () => {
             align: "center",
             loop: true,
           }}
-          className="w-full"
+          className={`w-full transition-all duration-1000 delay-300 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
         >
           <CarouselContent className="-ml-8">
             {carouselImages.map((image, index) => (
