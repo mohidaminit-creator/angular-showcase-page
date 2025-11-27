@@ -27,31 +27,31 @@ export const ProductCard = () => {
                 </div>
 
                 <h3 className="font-display text-3xl md:text-4xl font-bold mb-4">
-                  Elite Pro Headphones
+                  Pro Sport Headphones
                 </h3>
 
                 <p className="text-muted-foreground mb-6 leading-relaxed">
-                  Immerse yourself in studio-quality audio with our flagship wireless headphones. 
-                  Featuring advanced active noise cancellation, 40-hour battery life, and premium 
-                  comfort padding for all-day wear.
+                  Engineered for athletes and outdoor enthusiasts. IPX7 waterproof rating, 
+                  secure-fit ear hooks, and 30-hour battery life to power through your 
+                  toughest workouts and adventures.
                 </p>
 
                 <ul className="space-y-2 mb-8 text-sm">
                   <li className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-accent" />
-                    <span>40mm neodymium drivers</span>
+                    <span>IPX7 waterproof rating</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-accent" />
-                    <span>Active noise cancellation</span>
+                    <span>Secure-fit sport ear hooks</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-accent" />
-                    <span>40-hour battery life</span>
+                    <span>30-hour battery life</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-accent" />
-                    <span>Premium memory foam cushions</span>
+                    <span>Sweat and weather resistant</span>
                   </li>
                 </ul>
 

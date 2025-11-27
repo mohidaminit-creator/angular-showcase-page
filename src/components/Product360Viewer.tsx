@@ -1,33 +1,42 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import productView1 from "@/assets/product-view-1.jpg";
 import productView2 from "@/assets/product-view-2.jpg";
 import productView3 from "@/assets/product-view-3.jpg";
 import productView4 from "@/assets/product-view-4.jpg";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const images = [productView1, productView2, productView3, productView4];
 
 export const Product360Viewer = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [startY, setStartY] = useState(0);
+  const canvasRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const section = document.getElementById("viewer-360");
-      if (!section) return;
+    if (!canvasRef.current) return;
 
-      const rect = section.getBoundingClientRect();
-      const sectionMiddle = rect.top + rect.height / 2;
-      const windowMiddle = window.innerHeight / 2;
-
-      if (rect.top < windowMiddle && rect.bottom > windowMiddle) {
-        const progress = (windowMiddle - rect.top) / rect.height;
-        const index = Math.floor(progress * images.length) % images.length;
-        setCurrentIndex(index);
+    const modelTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#f-canvas',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: 1,
+        pin: true,
+        onUpdate: (self) => {
+          const progress = self.progress;
+          const index = Math.floor(progress * images.length) % images.length;
+          setCurrentIndex(index);
+        }
       }
-    };
+    });
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      modelTimeline.kill();
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
   }, []);
 
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -46,7 +55,7 @@ export const Product360Viewer = () => {
   };
 
   return (
-    <section id="viewer-360" className="min-h-screen flex items-center justify-center bg-muted py-20">
+    <section id="f-canvas" ref={canvasRef} className="min-h-screen flex items-center justify-center bg-muted py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 animate-fade-in-up">
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-4">

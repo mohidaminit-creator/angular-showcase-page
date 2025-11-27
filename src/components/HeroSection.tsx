@@ -14,11 +14,11 @@ export const HeroSection = () => {
       
       <div className="relative z-10 container mx-auto px-4 text-center animate-fade-in-up">
         <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6">
-          Elite Audio
-          <span className="block text-gradient mt-2">Redefined</span>
+          Sports & Outdoor
+          <span className="block text-gradient mt-2">Performance Gear</span>
         </h1>
         <p className="text-lg md:text-xl text-white/90 mb-12 max-w-2xl mx-auto">
-          Experience studio-quality sound with advanced noise cancellation and all-day comfort
+          Built for adventure, engineered for peak performance in any environment
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
